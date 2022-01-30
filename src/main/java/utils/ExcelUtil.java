@@ -13,27 +13,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public final class DataProviderUtils {
+public final class ExcelUtil {
 
-    private DataProviderUtils(){}
+    private ExcelUtil(){}
 
-    @DataProvider(name="LoginTestData",parallel = true)
-    public static Object[] getData(){
-        Object[] data = null;
-        try(FileInputStream fs = new FileInputStream(FrameworkConstants.getExcelFilePath());) {
+    
+    public static Object[][] getData(String sheetName){
+    	String[][] excelData = null;
+    	try(FileInputStream fs = new FileInputStream(FrameworkConstants.getExcelFilePath());) {
             XSSFWorkbook workbook = new XSSFWorkbook(fs);
-            XSSFSheet sheet = workbook.getSheet("Data");
+            XSSFSheet sheet = workbook.getSheet(sheetName);
             int rowNum = sheet.getLastRowNum();
             int colNum = sheet.getRow(0).getLastCellNum();
-            data = new Object[rowNum];
-            Map<String,String> map;
-            for(int i=1;i<=rowNum;i++){
-                map= new HashMap<>();
+            excelData=new String[rowNum][colNum];
+            for(int i=1;i<=rowNum;i++){                
                 for(int j=0;j<colNum;j++) {
-                    String key = sheet.getRow(0).getCell(j).getStringCellValue();
-                    String value = sheet.getRow(i).getCell(j).getStringCellValue();
-                    map.put(key,value);
-                    data[i-1]=map;
+                	excelData[i-1][j]=sheet.getRow(i).getCell(j).toString();
                 }
             }
         } catch (FileNotFoundException e) {
@@ -42,6 +37,6 @@ public final class DataProviderUtils {
          catch (IOException e) {
             e.printStackTrace();
         }
-        return data;
+        return excelData;
     }
 }

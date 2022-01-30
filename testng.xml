@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="methods" thread-count="3" data-provider-thread-count="2">
+<suite name="All Test Suite" >
     <listeners>
         <listener class-name="listeners.Listener"></listener>
-        <listener class-name="listeners.MethodInterceptor"></listener>
-        <listener class-name="listeners.AnnotationTransformer"></listener>
     </listeners>
-    <test verbose="2" preserve-order="true" name="/Users/vigneshs/Udemy-Channel/Selenium/Udemy-Selenium-Framework">
+    <test  name="FlipKartLoginTest">
         <classes>
-            <class name="tests.OrangeHRMTest">
+            <class name="tests.FlipKartLoginTest">
+            </class>
+        </classes>
+    </test>
+    <test  name="FlipKartSearchProductTest">
+        <classes>
+            <class name="tests.FlipKartSearchProductTest">
+            </class>
+        </classes>
+    </test>
+    <test  name="FlipKartAddingRemovingProduct">
+        <classes>
+            <class name="tests.FlipKartAddingRemovingProduct">
             </class>
         </classes>
     </test>

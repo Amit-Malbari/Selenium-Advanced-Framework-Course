@@ -1,16 +1,14 @@
 package driver;
 
+import java.net.MalformedURLException;
+import java.util.Objects;
+
+import org.openqa.selenium.WebDriver;
+
 import enums.ConfigProperties;
 import exceptions.BrowserInvocationFailedException;
 import factories.DriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import utils.ReadPropertyFile;
-
-import java.net.MalformedURLException;
-import java.util.Objects;
 
 public final class Driver {
 
@@ -25,6 +23,7 @@ public final class Driver {
                 throw new BrowserInvocationFailedException("Please check the browser capabilities",e);
             }
             DriverManager.getDriver().get(ReadPropertyFile.getValue(ConfigProperties.URL));
+            DriverManager.getDriver().manage().window().maximize();
         }
     }
 

@@ -1,24 +1,20 @@
 package tests;
 
-import constants.FrameworkConstants;
-import driver.Driver;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
-import reports.ExtentReport;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
-import java.io.IOException;
+import driver.Driver;
 
 public class BaseTest {
 
     protected BaseTest(){}
 
-    @BeforeMethod
+    @BeforeClass
     public void startUp(){
         Driver.initDriver();
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown(){
         Driver.quitDriver();
     }

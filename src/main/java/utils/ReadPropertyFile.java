@@ -1,13 +1,13 @@
 package utils;
 
-import constants.FrameworkConstants;
-import enums.ConfigProperties;
-import exceptions.InvalidFilePathException;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
+
+import constants.FrameworkConstants;
+import enums.ConfigProperties;
+import exceptions.InvalidFilePathException;
 
 public final class ReadPropertyFile {
 

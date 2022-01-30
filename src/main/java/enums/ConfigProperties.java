@@ -7,5 +7,8 @@ public enum ConfigProperties {
     SKIPEDSTEPSSCREENSHOT,
     RETRYFAILEDTESTS,
     BROWSER,
-    RUNMODE
+    RUNMODE,
+    USERNAME,
+    PASSWORD,
+    USER
 }

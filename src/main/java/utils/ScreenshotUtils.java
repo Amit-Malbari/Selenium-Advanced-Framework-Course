@@ -1,8 +1,9 @@
 package utils;
 
-import driver.DriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import driver.DriverManager;
 
 public final class ScreenshotUtils {
 

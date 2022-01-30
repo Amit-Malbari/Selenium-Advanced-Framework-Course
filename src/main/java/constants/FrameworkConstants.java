@@ -1,10 +1,10 @@
 package constants;
 
-import enums.ConfigProperties;
-import utils.ReadPropertyFile;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import enums.ConfigProperties;
+import utils.ReadPropertyFile;
 
 public class FrameworkConstants {
 

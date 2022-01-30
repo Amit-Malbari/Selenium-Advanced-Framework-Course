@@ -7,30 +7,32 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import reports.ExtentLogger;
 
-public final class OrangeHRMLoginPage extends BasePage {
+public final class FlipKartLogin extends BasePage {
 
-    private final By usernameBox = By.id("txtUsername");
+    private final By usernameBox = By.xpath("(//div[@class='_2MlkI1']//input)[1]");
 
-    private final By passwordBox = By.id("txtPassword");
+    private final By passwordBox = By.xpath("(//div[@class='_2MlkI1']//input)[2]");
 
-    private final By loginButton = By.id("btnLogin");
+    private final By loginButton = By.cssSelector("button[class='_2KpZ6l _2HKlqd _3AWRsL']");
 
     private final By invalidCredsError = By.id("spanMessage");
 
-    public OrangeHRMLoginPage enterUsername(String usernameValue){
+    public FlipKartLogin enterUsername(String usernameValue){
         sendKeys(usernameBox,usernameValue, WaitStrategy.PRESENCE,"Username");
         return this;
     }
 
-    public OrangeHRMLoginPage enterPassword(String passwordValue){
+    public FlipKartLogin enterPassword(String passwordValue){
         sendKeys(passwordBox,passwordValue,WaitStrategy.PRESENCE,"Password");
         return this;
     }
 
-    public OrangeHRMHomePage clickLoginButton(){
+    public FlipKartHomePage clickLoginButton(){
         click(loginButton,WaitStrategy.CLICKABLE,"Login Button");
-        return new OrangeHRMHomePage();
+        return new FlipKartHomePage();
     }
+    
+    
 
     public String invalidCredsErrorText() {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(),10);
